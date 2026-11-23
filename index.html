@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monirul Fashion | Inventory Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Product images are defined in HTML templates -->
+    <div class="html-product-image-library" aria-hidden="true">
+        <template id="img-Sunglasses">
+            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80" alt="Sunglasses" loading="lazy">
+        </template>
+        <template id="img-Shirt">
+            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80" alt="Shirt" loading="lazy">
+        </template>
+        <template id="img-Pants">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80" alt="Pants" loading="lazy">
+        </template>
+        <template id="img-T-Shirt">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="T-Shirt" loading="lazy">
+        </template>
+        <template id="img-Shoes">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Shoes" loading="lazy">
+        </template>
+        <template id="img-Bag">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Bag" loading="lazy">
+        </template>
+        <template id="img-Jacket">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80" alt="Jacket" loading="lazy">
+        </template>
+        <template id="img-Accessories">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=80" alt="Accessories" loading="lazy">
+        </template>
+    </div>
+
+    <!-- Default product records are maintained in HTML -->
+    <section id="htmlProductCatalog" hidden aria-hidden="true">
+        <h2>Default Product Catalog</h2>
+        <article data-seed-product data-id="MF001" data-name="Aviator Gold Sunglasses" data-category="Sunglasses" data-price="450" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF002" data-name="Classic Black Sunglasses" data-category="Sunglasses" data-price="650" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF003" data-name="Retro Round Sunglasses" data-category="Sunglasses" data-price="850" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF004" data-name="UV Shield Sunglasses" data-category="Sunglasses" data-price="1050" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF005" data-name="Square Frame Shades" data-category="Sunglasses" data-price="1250" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF006" data-name="Vintage Brown Shades" data-category="Sunglasses" data-price="450" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF007" data-name="Sport Sunglasses" data-category="Sunglasses" data-price="650" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF008" data-name="Silver Rim Sunglasses" data-category="Sunglasses" data-price="850" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF009" data-name="Cat Eye Sunglasses" data-category="Sunglasses" data-price="1050" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF010" data-name="Matte Black Shades" data-category="Sunglasses" data-price="1250" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF011" data-name="Premium White Shirt" data-category="Shirt" data-price="850" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF012" data-name="Oxford Blue Shirt" data-category="Shirt" data-price="1075" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF013" data-name="Slim Fit Black Shirt" data-category="Shirt" data-price="1300" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF014" data-name="Striped Casual Shirt" data-category="Shirt" data-price="1525" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF015" data-name="Linen Beige Shirt" data-category="Shirt" data-price="1750" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF016" data-name="Formal Navy Shirt" data-category="Shirt" data-price="850" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF017" data-name="Checked Cotton Shirt" data-category="Shirt" data-price="1075" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF018" data-name="Olive Casual Shirt" data-category="Shirt" data-price="1300" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF019" data-name="Denim Button Shirt" data-category="Shirt" data-price="1525" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF020" data-name="Printed Summer Shirt" data-category="Shirt" data-price="1750" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF021" data-name="Urban Cargo Pants" data-category="Pants" data-price="950" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF022" data-name="Classic Black Trousers" data-category="Pants" data-price="1262" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF023" data-name="Casual Beige Pants" data-category="Pants" data-price="1575" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF024" data-name="Slim Fit Denim Jeans" data-category="Pants" data-price="1888" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF025" data-name="Relaxed Blue Jeans" data-category="Pants" data-price="2200" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF026" data-name="Olive Cargo Trousers" data-category="Pants" data-price="950" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF027" data-name="Formal Navy Pants" data-category="Pants" data-price="1262" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF028" data-name="Straight Fit Chinos" data-category="Pants" data-price="1575" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF029" data-name="Grey Jogger Pants" data-category="Pants" data-price="1888" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF030" data-name="Light Wash Denim" data-category="Pants" data-price="2200" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF031" data-name="Classic Black T-Shirt" data-category="T-Shirt" data-price="350" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF032" data-name="Premium White T-Shirt" data-category="T-Shirt" data-price="500" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF033" data-name="Olive Graphic Tee" data-category="T-Shirt" data-price="650" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF034" data-name="Minimal Logo T-Shirt" data-category="T-Shirt" data-price="800" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF035" data-name="Oversized Beige Tee" data-category="T-Shirt" data-price="950" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF036" data-name="Navy Cotton T-Shirt" data-category="T-Shirt" data-price="350" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF037" data-name="Striped Summer Tee" data-category="T-Shirt" data-price="500" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF038" data-name="Charcoal Basic Tee" data-category="T-Shirt" data-price="650" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF039" data-name="Printed Streetwear Tee" data-category="T-Shirt" data-price="800" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF040" data-name="Polo Collar T-Shirt" data-category="T-Shirt" data-price="950" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF041" data-name="Everyday Sneakers" data-category="Shoes" data-price="1250" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF042" data-name="White Street Sneakers" data-category="Shoes" data-price="1738" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF043" data-name="Classic Loafers" data-category="Shoes" data-price="2225" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF044" data-name="Running Sport Shoes" data-category="Shoes" data-price="2712" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF045" data-name="Canvas High Tops" data-category="Shoes" data-price="3200" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF046" data-name="Black Formal Shoes" data-category="Shoes" data-price="1250" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF047" data-name="Brown Casual Shoes" data-category="Shoes" data-price="1738" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF048" data-name="Minimal Slip-ons" data-category="Shoes" data-price="2225" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF049" data-name="Retro Court Sneakers" data-category="Shoes" data-price="2712" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF050" data-name="Outdoor Trail Shoes" data-category="Shoes" data-price="3200" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF051" data-name="Leather Crossbody Bag" data-category="Bag" data-price="750" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF052" data-name="Everyday Tote Bag" data-category="Bag" data-price="1262" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF053" data-name="Compact Sling Bag" data-category="Bag" data-price="1775" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF054" data-name="Classic Backpack" data-category="Bag" data-price="2288" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF055" data-name="Canvas Shoulder Bag" data-category="Bag" data-price="2800" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF056" data-name="Travel Duffel Bag" data-category="Bag" data-price="750" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF057" data-name="Mini Fashion Bag" data-category="Bag" data-price="1262" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF058" data-name="Laptop Messenger Bag" data-category="Bag" data-price="1775" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF059" data-name="Weekend Backpack" data-category="Bag" data-price="2288" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF060" data-name="Quilted Shoulder Bag" data-category="Bag" data-price="2800" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF061" data-name="Classic Denim Jacket" data-category="Jacket" data-price="1600" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF062" data-name="Lightweight Bomber Jacket" data-category="Jacket" data-price="2250" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF063" data-name="Black Biker Jacket" data-category="Jacket" data-price="2900" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF064" data-name="Olive Utility Jacket" data-category="Jacket" data-price="3550" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF065" data-name="Casual Windbreaker" data-category="Jacket" data-price="4200" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF066" data-name="Cream Overshirt Jacket" data-category="Jacket" data-price="1600" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF067" data-name="Puffer Winter Jacket" data-category="Jacket" data-price="2250" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF068" data-name="Brown Suede Style Jacket" data-category="Jacket" data-price="2900" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF069" data-name="Varsity Jacket" data-category="Jacket" data-price="3550" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF070" data-name="Hooded Zip Jacket" data-category="Jacket" data-price="4200" data-stock="10" data-sold="8"></article>
+
+        <article data-seed-product data-id="MF071" data-name="Minimal Wrist Watch" data-category="Accessories" data-price="180" data-stock="18" data-sold="34"></article>
+        <article data-seed-product data-id="MF072" data-name="Leather Belt" data-category="Accessories" data-price="510" data-stock="12" data-sold="29"></article>
+        <article data-seed-product data-id="MF073" data-name="Steel Bracelet" data-category="Accessories" data-price="840" data-stock="25" data-sold="25"></article>
+        <article data-seed-product data-id="MF074" data-name="Classic Wallet" data-category="Accessories" data-price="1170" data-stock="8" data-sold="22"></article>
+        <article data-seed-product data-id="MF075" data-name="Cotton Baseball Cap" data-category="Accessories" data-price="1500" data-stock="31" data-sold="18"></article>
+        <article data-seed-product data-id="MF076" data-name="Fashion Necklace" data-category="Accessories" data-price="180" data-stock="16" data-sold="16"></article>
+        <article data-seed-product data-id="MF077" data-name="Everyday Socks Pack" data-category="Accessories" data-price="510" data-stock="6" data-sold="15"></article>
+        <article data-seed-product data-id="MF078" data-name="Keychain Set" data-category="Accessories" data-price="840" data-stock="22" data-sold="12"></article>
+        <article data-seed-product data-id="MF079" data-name="Beanie Knit Cap" data-category="Accessories" data-price="1170" data-stock="14" data-sold="10"></article>
+        <article data-seed-product data-id="MF080" data-name="Slim Card Holder" data-category="Accessories" data-price="1500" data-stock="10" data-sold="8"></article>
+    </section>
+
+    <!-- Login Page -->
+    <div class="login-page" id="loginPage">
+        <div class="login-card">
+            <div class="brand-mark">MF</div>
+            <h1>Monirul Fashion</h1>
+            <p>Small Business Inventory Management System</p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" type="email" placeholder="Enter your email" required>
+
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" placeholder="Enter password" required>
+
+                <button class="primary-btn full" type="submit">Sign In</button>
+            </form>
+
+            <small>Demo password: <b>Monirul@123</b></small>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app hidden" id="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand" id="brandProfile">
+                <div class="brand-mark small brand-photo" id="sidebarBrandPhoto" aria-label="Business profile image">
+                    <span class="brand-fallback">✦</span>
+                </div>
+                <div>
+                    <b>Monirul</b>
+                    <span>Fashion</span>
+                </div>
+            </div>
+
+            <nav>
+                <button class="nav-btn active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+                <button class="nav-btn" data-page="products">▣ <span>Products</span></button>
+                <button class="nav-btn" data-page="sales">◉ <span>Sales</span></button>
+                <button class="nav-btn" data-page="stock">▤ <span>Stock</span></button>
+                <button class="nav-btn" data-page="reports">◒ <span>Reports</span></button>
+                <button class="nav-btn" data-page="offers">✦ <span>Offers</span></button>
+            </nav>
+
+            <button class="logout" id="logoutBtn">↪ Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">MONIRUL FASHION</p>
+                    <h2 id="pageTitle">Dashboard</h2>
+                </div>
+
+                <button class="profile-chip" id="profileBtn">
+                    <span id="profileAvatar">
+                        <span class="avatar-fallback">●</span>
+                    </span>
+                    <span>Monirul Islam</span>
+                </button>
+            </header>
+
+            <!-- Dashboard -->
+            <section class="page active-page" id="dashboard">
+                <div class="hero">
+                    <div>
+                        <p class="eyebrow">BUSINESS OVERVIEW</p>
+                        <h1>Welcome to <span>Monirul Fashion</span></h1>
+                        <!-- <p>Manage products, stock, sales and offers from one professional dashboard.</p> -->
+                    </div>
+                    <button class="primary-btn" data-go="products">+ Add Product</button>
+                </div>
+
+                <div class="stat-grid">
+                    <button class="stat-card" data-go="products">
+                        <span>Total Products</span>
+                        <strong id="totalProducts">0</strong>
+                        <small>View all products →</small>
+                    </button>
+
+                    <button class="stat-card" data-go="stock">
+                        <span>Available Stock</span>
+                        <strong id="availableStock">0</strong>
+                        <small>View inventory →</small>
+                    </button>
+
+                    <button class="stat-card" data-go="sales">
+                        <span>Record Sales</span>
+                        <strong id="recordSales">0</strong>
+                        <small>View sales →</small>
+                    </button>
+
+                    <button class="stat-card danger" data-go="stock">
+                        <span>Low Stock</span>
+                        <strong id="lowStock">0</strong>
+                        <small>Needs attention →</small>
+                    </button>
+                </div>
+
+                <div class="section-head">
+                    <div>
+                        <h3>Best Selling Products</h3>
+                        <p>Up to 40 products</p>
+                    </div>
+                    <button class="text-btn" data-go="products">View all →</button>
+                </div>
+                <div class="product-grid" id="bestProducts"></div>
+
+                <div class="section-head">
+                    <div>
+                        <h3>Available Products</h3>
+                        <p>Currently in stock</p>
+                    </div>
+                </div>
+                <div class="product-grid" id="availableProducts"></div>
+
+                <div class="section-head">
+                    <div>
+                        <h3>Offers</h3>
+                        <p>Up to 24 offer products</p>
+                    </div>
+                    <button class="text-btn" data-go="offers">Manage offers →</button>
+                </div>
+                <div class="offer-grid" id="dashboardOffers"></div>
+            </section>
+
+            <!-- Products Page -->
+            <section class="page" id="products">
+                <div class="toolbar">
+                    <div>
+                        <h2>Products</h2>
+                        <p>Add and manage fashion products.</p>
+                    </div>
+                    <button class="primary-btn" id="openProductModal">+ Add Product</button>
+                </div>
+
+                <div class="filters">
+                    <input id="productSearch" placeholder="Search products...">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="product-grid large" id="productGrid"></div>
+            </section>
+
+            <!-- Sales Page -->
+            <section class="page" id="sales">
+                <div class="toolbar">
+                    <div>
+                        <h2>Sales</h2>
+                        <p>Search a product and record a sale.</p>
+                    </div>
+                </div>
+
+                <div class="sale-layout">
+                    <div class="panel">
+                        <h3>New Sale</h3>
+                        <input id="saleSearch" placeholder="Search product by name...">
+                        <div class="search-results" id="saleResults"></div>
+                        <div class="selected-sale hidden" id="selectedSale"></div>
+
+                        <div class="sale-fields">
+                            <label for="saleId">Sales ID</label>
+                            <input id="saleId" placeholder="Auto-generated" readonly>
+
+                            <label for="saleProductId">Product ID</label>
+                            <input id="saleProductId" placeholder="Select a product" readonly>
+
+                            <label for="saleProductPrice">Product Price (৳)</label>
+                            <input id="saleProductPrice" readonly>
+
+                            <label for="saleUnitPrice">Sales Price per unit (৳)</label>
+                            <input id="saleUnitPrice" type="number" min="0" step="1" value="0">
+
+                            <label for="saleQty">Sales Quantity</label>
+                            <input id="saleQty" type="number" min="1" value="1">
+
+                            <label for="saleDiscount">Discount (%)</label>
+                            <input id="saleDiscount" type="number" min="0" max="100" value="0">
+
+                            <label for="saleDiscountAmount">Discount Amount (৳)</label>
+                            <input id="saleDiscountAmount" readonly value="৳0">
+
+                            <label for="saleFinalTotal">Final Sales Total (৳)</label>
+                            <input id="saleFinalTotal" readonly value="৳0">
+                        </div>
+
+                        <button class="primary-btn full" id="saveSale">Record Sale</button>
+                    </div>
+
+                    <div class="panel history_hidden">
+                        <!-- <h3>Sales History</h3> -->
+                        <div id="salesHistory"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stock Page -->
+            <section class="page" id="stock">
+                <div class="toolbar">
+                    <div>
+                        <h2>Stock Management</h2>
+                        <p>Monitor and adjust inventory.</p>
+                    </div>
+                </div>
+                <div class="panel report-sales table-wrap" id="stockTable"></div>
+            </section>
+
+            <!-- Reports Page -->
+            <section class="page" id="reports">
+                <div class="toolbar">
+                    <div>
+                        <h2>Reports</h2>
+                        <p>Sales and inventory summary.</p>
+                    </div>
+                    <button class="secondary-btn" id="exportBtn">Export Sales CSV</button>
+                </div>
+
+                <div class="report-grid">
+                    <div class="report-card">
+                        <span>Total Sales</span>
+                        <strong id="reportSales">৳0</strong>
+                    </div>
+                    <div class="report-card">
+                        <span>Units Sold</span>
+                        <strong id="reportUnits">0</strong>
+                    </div>
+                    <div class="report-card">
+                        <span>Inventory Value</span>
+                        <strong id="reportValue">৳0</strong>
+                    </div>
+                </div>
+
+                <div class="panel report-sales">
+                    <h3>Sales Report</h3>
+                    <div id="reportTable"></div>
+                </div>
+            </section>
+
+            <!-- Offers Page -->
+            <section class="page" id="offers">
+                <div class="toolbar">
+                    <div>
+                        <h2>Offers</h2>
+                        <p>Create promotional offers for products.</p>
+                    </div>
+                    <button class="primary-btn" id="openOfferModal">+ Add Offer</button>
+                </div>
+                <div class="offer-grid" id="offerGrid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add / Edit Product Modal -->
+    <div class="modal hidden" id="productModal">
+        <div class="modal-card">
+            <button class="close" data-close="productModal">&times;</button>
+            <h2 id="productModalTitle">Add Product</h2>
+
+            <form id="productForm">
+                <label for="pId">Product ID</label>
+                <input id="pId" placeholder="Auto-generated if left blank">
+
+                <label for="pName">Product Name</label>
+                <input id="pName" required>
+
+                <label for="pCategorySelect">Category (select or type a new one)</label>
+                <div class="category-entry">
+                    <select id="pCategorySelect">
+                        <option value="">Choose a category</option>
+                        <option>Sunglasses</option>
+                        <option>T-Shirt</option>
+                        <option>Shirt</option>
+                        <option>Pants</option>
+                        <option>Bag</option>
+                        <option>Shoes</option>
+                        <option>Jacket</option>
+                        <option>Accessories</option>
+                    </select>
+                    <input id="pCategory" placeholder="Or type a new category" required>
+                </div>
+
+                <label for="pPrice">Price (৳)</label>
+                <input id="pPrice" type="number" min="0" required>
+
+                <label for="pStock">Stock Quantity</label>
+                <input id="pStock" type="number" min="0" required>
+
+                <label for="pImageUrl">Product Image URL (optional)</label>
+                <input id="pImageUrl" type="url" placeholder="https://example.com/product.jpg" autocomplete="url">
+                <small class="image-help">Paste a direct image URL. The link should open the image itself in your browser.</small>
+
+                <label>Image Preview</label>
+                <div class="image-preview" id="imagePreview" aria-live="polite">
+                    Paste an image URL to preview the product image.
+                </div>
+
+                <button class="primary-btn full" id="productSubmit" type="submit">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Offer Modal -->
+    <div class="modal hidden" id="offerModal">
+        <div class="modal-card">
+            <button class="close" data-close="offerModal" aria-label="Close offer form">&times;</button>
+            <h2>Add Product Offer</h2>
+            <p class="muted">Choose a product and set its discount percentage.</p>
+
+            <form id="offerForm">
+                <label for="oProduct">Product</label>
+                <select id="oProduct" required></select>
+
+                <label for="oTitle">Offer Title</label>
+                <input id="oTitle" placeholder="e.g. Weekend Shirt Offer" required>
+
+                <label for="oDiscount">Discount (%)</label>
+                <input id="oDiscount" type="number" min="1" max="100" value="20" required>
+
+                <div class="offer-preview" id="offerPricePreview">
+                    Select a product to preview the offer price.
+                </div>
+
+                <div class="date-fields">
+                    <div>
+                        <label for="oStart">Start Date</label>
+                        <input id="oStart" type="date" required>
+                    </div>
+                    <div>
+                        <label for="oEnd">End Date</label>
+                        <input id="oEnd" type="date" required>
+                    </div>
+                </div>
+
+                <button class="primary-btn full" type="submit">Create Product Offer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Business Profile Modal -->
+    <div class="modal hidden" id="profileModal">
+        <div class="modal-card profile-modal">
+            <button class="close" id="closeProfileBtn" type="button" aria-label="Close without saving">&times;</button>
+            <div class="profile-cover"></div>
+            <div class="owner-photo" id="ownerPhoto">M</div>
+
+            <h2>Monirul Fashion</h2>
+            <p class="muted">Fashion &amp; Clothing Business</p>
+
+            <form class="profile-info" id="profileForm">
+                <label for="profileBusiness">Business Name</label>
+                <input id="profileBusiness" value="Monirul Fashion" required>
+
+                <label for="profileOwner">Owner Name</label>
+                <input id="profileOwner" value="Monirul Islam" required>
+
+                <label for="profileEmail">Email</label>
+                <input id="profileEmail" type="email" value="062251042111004@student.kyau.edu.bd" required>
+
+                <label for="profileAddress">Address</label>
+                <input id="profileAddress" value="Bangladesh" required>
+
+                <label for="profileAbout">Business Details</label>
+                <textarea id="profileAbout" rows="3">Fashion products, clothing, bags and accessories</textarea>
+
+                <div class="profile-actions">
+                    <button class="primary-btn" type="submit">Save Profile</button>
+                    <button class="secondary-btn" id="cancelProfileBtn" type="button">Close without saving</button>
+                </div>
+            </form>
+
+            <label for="ownerImageInput">Change Profile Image / Logo</label>
+            <input id="ownerImageInput" type="file" accept="image/*">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
